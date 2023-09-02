@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+   font-family: 'inter';
+   font-weight: 900;
+  }
+  body{
+background-color:#E27526 !important ;
+
+
+  }
+  .pbutton {
+  
+    border: none !important;
+  }
+
+  .pbutton:focus,
+  .pbutton:active,
+  .pbutton:hover {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .btn.btn-primary.btn-block.pbutton, .col-md-4{
+    background-color:#E27526 !important ;
+
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+    font-size: 25px;
+
+  }
+  img{
+    padding-right: 30px;
+    padding-left: 10px;
+  }
+.nav-item{
+  padding-left: 30px;
+  padding-right: 30px;
+padding-top: 17px;
+}
+
+  .navbar.navbar-expand-lg.navbar-dark.bg-dark.navbar-custom {
+    background-color: #000000 !important; 
+  }
+  .roza {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1094.4px;
+    height: 531.2px;
+    align-items: center;
+    background: #C21B67;
+    border-radius: 50px;
+    margin-top: 100px; 
+  }
+
+
+  .roza {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200.4px;
+    height: 531.2px;
+    align-items: center;
+    background: #C21B67;
+    border-radius: 50px;
+    margin-top: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: -30px;
+  }
+  .bigwhite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%; 
+    margin: 0 auto;
+    color: white;
+    gap: 250px;
+    padding-top: 30px;
+  }
+  
+  .bigwhite p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    
+    line-height: 54px;
+    text-shadow: 0px 4px 15px #000000;
+  }
+  
+  
+  
+
+ 
+ .grid-item {
+  margin: 20px;
+
+    padding: 15px;
+    background: #000000;
+border-radius: 50px;
+width: 320px;
+height: 220px;
+color: white;
+position: relative;
+ }
+ .grid-item-h1{
+padding-left: 15px;
+  padding-bottom: 15px;
+ }
+ .grid-item-p{
+  padding-left: 15px;
+
+   }
+
+   
+  
+  .edit-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+    padding: 5px;
+    font-size: 12px;
+    background-color: #007bff; /* Customize the button appearance */
+    color: #ffffff; /* Customize the button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .show-edit-buttons .edit-button {
+    display: block; /* Show the edit buttons when the show-edit-buttons class is applied */
+  }
+  
+  .grid-item:hover .edit-button {
+    display: block;
+  }

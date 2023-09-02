@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ja.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <title>ja</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom animated-navbar">
+    <img src="{% static 'pictures/FB_Algebra-logo.jpg' %}" alt="Logo" height="40" class="AnimacijaZaSliku">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+     <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'pocetna' %}"><p>Početna</p></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'kolegij' %}"><p>Kolegiji i profesori</p></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ja' %}"><p>Ja</p></a>
+    </li>
+
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" id="Odjava" href="{% url 'logout' %}"><p>Odjava</p></a>
+    </li>
+    {% endif %}
+</ul>
+
+    </div>
+  </nav>
+  <div class="content-container">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+            <div class="bigwhite">
+              <button type="button" class="btn btn-primary btn-block pbutton"><p class="jatxt">Ja</p></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="roza">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 square-container">
+              <img src="{% static 'pictures/profil.jpg' %}" alt="Your Picture" class="image">
+            </div>
+            
+            
+            
+            <div class="col-lg-10">
+              <div class="additional-info">
+                  <p class="info-TEXT">Ime i prezime: <span class="ROZO">{{ user.first_name }}  {{ user.last_name }}</span></p>
+                  <p class="info-TEXT">Email: <span class="ROZO">{{ user.email }}</span></p>
+                  <p class="info-TEXT">Tip računa: <span class="ROZO">
+                    {% if user.profesor %}
+                        Profesor
+                    {% elif user.admin %}
+                        Admin
+                    {% else %}
+                        Običan Korisnik
+                    {% endif %}
+                    </span></p>
+                    
+              </div>
+          </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

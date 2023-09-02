@@ -1,0 +1,593 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pocetna.css' %}">
+
+
+    <style>
+      .row.kutije {
+          margin-top: {{ margin_top_pixels }}px !important;
+      }
+      @media (max-width: 568px) {
+
+        .content-container {
+          transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+          transform-origin: 0 0 !important;
+        }
+        #addObavijestModal{
+          transform: scale(1) !important;
+          padding-left: 0 !important;
+          width:900px !important;
+        }
+        .roza{
+          transform: scale(1.7) !important;
+          transform-origin: 0 0 !important;
+         margin-top: 200px !important;
+          width: 400px !important;
+          margin-left: -20% !important;
+        }
+        .bigwhite{
+       margin-left: 50% !important;
+       margin-right: 50% !important;
+
+        }
+        .row.kutije{
+          margin-top: {{ margin_top_pixels }}px !important;
+          margin-bottom: -3000px !important;
+          transform: scale(0.4) !important;
+        }
+        
+        .Txttop{font-size: 45px !important;}
+        .grid-item{
+          transform: scale(2) !important;
+       
+        
+          margin-top: 140px !important;
+          margin-bottom: 140px !important;
+      
+        }
+      }
+      @media (min-width: 568px) and (max-width: 768px) {
+      
+        .content-container {
+          transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+          transform-origin: 0 0 !important;
+        }
+        .roza{
+         margin-top: 650px !important;
+          width: 900px !important;
+          margin-left: 50% !important;
+          height: 1000px !important;
+        }
+        .bigwhite{
+       margin-left: 50% !important;
+        }
+        .row.kutije{
+          margin-top: {{ margin_top_pixels2 }}px !important;
+        }
+        .Txttop{font-size: 45px !important;
+      
+      }
+        .grid-item{
+          margin-left: 20% !important;
+          transform: scale(2) !important;
+          margin-top: 25% !important;
+          margin-bottom: 25% !important;
+        }
+        .btn.btn-primary.btn-block.pbutton{
+      margin-top: 50px !important;
+          margin-left: 50% !important;
+          z-index: 1000 !important;
+        }
+      }
+      
+      
+      @media (min-width: 768px) and (max-width: 968px) {
+      
+        .content-container {
+          transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+          transform-origin: 0 0 !important;
+        }
+        .roza{
+         margin-top: 650px !important;
+          width: 1200px !important;
+          margin-left: 50% !important;
+          height: 1000px !important;
+        }
+        .bigwhite{
+       margin-left: 50% !important;
+       width: 500px !important;
+        }
+        .row.kutije{
+          margin-top: {{ margin_top_pixels2 }}px !important;
+        }
+        .Txttop{font-size: 45px !important;
+      
+      }
+        .grid-item{
+        
+      
+          transform: scale(1.5) !important;
+          margin-top: 25% !important;
+          margin-bottom: 25% !important;
+         
+        }
+        .btn.btn-primary.btn-block.pbutton{
+      margin-top: 50px !important;
+          margin-left: 50% !important;
+          z-index: 1000 !important;
+        }
+        .col-lg-4.col-md-6{
+          margin-bottom: 80px !important;
+          margin-right: 10px !important;
+          margin-left: 22.5% !important;
+          transform: scale(1.3) !important; 
+        }
+      }
+      @media (min-width: 968px) and (max-width: 1168px) {
+      
+        .content-container {
+          transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+          transform-origin: 0 0 !important;
+        }
+        .roza{
+         margin-top: 650px !important;
+          width: 1700px !important;
+          margin-left: 50% !important;
+          height: 1000px !important;
+        }
+        .bigwhite{
+       margin-left: 300px !important;
+      width: 500px !important;
+        }
+        .row.kutije{
+          margin-top: {{ margin_top_pixels1 }}px !important;
+        }
+        .Txttop{font-size: 55px !important;
+      
+      }
+        .grid-item{
+        
+      
+          transform: scale(1.9) !important;
+          margin-top: 25% !important;
+          margin-bottom: 25% !important;
+        }
+        .btn.btn-primary.btn-block.pbutton{
+      margin-top: 50px !important;
+          margin-left: 50% !important;
+          z-index: 1000 !important;
+        }
+        .col-lg-4.col-md-6{
+          margin-right: 100px !important;
+        }
+        .row.kutije{
+          width: 1700px !important;
+        }
+      }
+      
+      @media (min-width: 1168px) and (max-width: 1368px) {
+      
+        .content-container {
+          transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+          transform-origin: 0 0 !important;
+        }
+        .roza{
+         margin-top: 650px !important;
+          width: 1700px !important;
+          margin-left: 50% !important;
+          height: 1000px !important;
+        }
+        .bigwhite{
+       margin-left: 600px !important;
+      
+        }
+        .row.kutije{
+          margin-top: {{ margin_top_pixels1 }}px !important;
+        }
+        .Txttop{font-size: 55px !important;
+      
+      }
+        .grid-item{
+        
+      
+          transform: scale(1.9) !important;
+          margin-top: 25% !important;
+          margin-bottom: 25% !important;
+        }
+        .btn.btn-primary.btn-block.pbutton{
+      margin-top: 50px !important;
+          margin-left: 50% !important;
+          z-index: 1000 !important;
+        }
+        .col-lg-4.col-md-6{
+          margin-right: 100px !important;
+        }
+        .row.kutije{
+          width: 1700px !important;
+        }
+      }
+      
+      
+      
+      #Odjava{
+      
+        color:#c21b66b0 !important;
+        }
+        .modal-dialog.modal-lg{
+          top: 5% !important;
+          left: 25% !important;
+        }
+        .modal-header.obavijest,.modal-body.obavijest{
+          background-color: black !important;
+          color: white !important;
+        }
+       
+        .close.obavijest{
+          color: rgb(255, 255, 255) !important;
+         opacity: 100% !important;
+        }
+        #modal-title{
+          margin-bottom: 30px !important;
+        }
+       
+  </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <title>pocetna</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom animated-navbar">
+    <img src="{% static 'pictures/FB_Algebra-logo.jpg' %}" alt="Logo" height="40" class="AnimacijaZaSliku">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+     <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'pocetna' %}"><p>Početna</p></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'kolegij' %}"><p>Kolegiji i profesori</p></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ja' %}"><p>Ja</p></a>
+    </li>
+
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" id="Odjava" href="{% url 'logout' %}"><p>Odjava</p></a>
+    </li>
+    {% endif %}
+</ul>
+
+    </div>
+  </nav>
+  <div class="content-container">
+  <div class="container">
+    <div class="row">
+      <!--<div class="col-md-4 col-sm-6">
+        <div class="bigwhite">
+          <button type="button" class="btn btn-primary btn-block pbutton"><p>Vijesti</p></button>
+        </div>
+      </div>-->
+      <div class="col-md-4 col-sm-6">
+        <div class="bigwhite">
+          <button type="button" class="btn btn-primary btn-block pbutton" data-toggle="modal" data-target="#addObavijestModal">
+            <p class="Txttop">Nova obavijest</p>
+          </button>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="bigwhite">
+          <button onclick="toggleEditButtons()" type="button" class="btn btn-primary btn-block pbutton"><p class="Txttop">Uredi</p></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="addObavijestModal">
+    <div class="modal-dialog modal-dialog-centered modal-bottom">
+      <div class="modal-content">
+        
+        <form id="obavijestForm" method="post" action="{% url 'create_obavijest' %}">
+          {% csrf_token %}
+          
+        <!-- Modal Header -->
+    
+        <!-- Modal Body -->
+<!-- Modal Body -->
+<div class="modal-body">
+  
+  <div class="Modal-Naslov d-flex flex-column justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+       
+          <!-- Input field for 'Naslov' on the left -->
+          <input type="text" class="form-control" id="inputNaslov" name="inputNaslov">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+ 
+          <select name="inputPredmet" id="inputPredmet">
+            {% for kolegij in kolegiji %}
+              <option value="{{ kolegij.kolegij_id }}">{{ kolegij.kolegij_naziv }}</option>
+            {% endfor %}
+          </select>
+
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="pad"></div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+  
+          <!-- Bigger textarea below the three inputs -->
+          <textarea class="form-control" id="inputObavijest" name="inputObavijest" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>  
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary Odustani" data-dismiss="modal">Odustani</button>
+          <button type="submit" class="btn btn-primary Save">Spremi</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  
+  </div>
+  
+  
+  <div class="roza">
+    <div class="container">
+      <div class="row kutije">
+        {% for obavijest in obavijesti %}
+        <div class="col-lg-4 col-md-6">
+          <div class="grid-item" >
+            <h1 class="grid-item-h1" onclick="openObavijestModal('{{ obavijest.title|default:"" }}', '{{ obavijest.content|default:"" }}', '{{ obavijest.kolegij.kolegij_naziv|default:"" }}')">
+              {{ obavijest.title|default:"No obavijest available" }}
+              {% if obavijest.kolegij %}
+              
+ - {{ obavijest.kolegij.kolegij_naziv }}{% endif %}</h1><p class="grid-item-p">{{ obavijest.content|default:" " }}</p><button class="edit-button" onclick="openEditObavijestModal('{{ obavijest.id }}','{{ obavijest.title }}', '{{ obavijest.content }}')"><p class="Uredi">Uredi</p></button></div></div>{% endfor %}</div></div></div>
+  <div class="modal fade" id="obavijestModal" tabindex="-1" role="dialog" aria-labelledby="obavijestModalLabel" aria-hidden="true">
+   
+    <div class="modal-dialog modal-lg"> <!-- Use modal-lg class for larger modal -->
+        <div class="modal-content">
+            <div class="modal-header obavijest">
+  
+            </div>
+            <div class="modal-body obavijest">
+                <!-- Obavijest content will be displayed here -->
+                <h1 id="modal-title"></h1>
+                <p>Kolegij: <span id="modal-kolegij"></span></p>
+                <p id="modal-content"></p>
+            </div>
+            <div class="modal-footer">
+              <!-- Add a "Delete" button -->
+              {% csrf_token %}
+              
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+          </div>
+        </div>
+    </div>
+    
+</div>
+  
+<!-- Edit Obavijest Modal -->
+<div class="modal fade" id="editObavijestModal" tabindex="-1" role="dialog" aria-labelledby="editObavijestModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-bottom">
+    <div class="modal-content">
+      <form id="editObavijestForm" method="post" action="">
+
+        {% csrf_token %}
+        <input type="hidden" id="obavijestId" name="obavijestId" value="">
+        <div class="modal-body">
+          <div class="form-group">
+           
+            <input type="text" class="form-control" id="updatedTitle" name="updatedTitle">
+          </div>
+          <div class="form-group">
+         
+            <textarea class="form-control" id="updatedContent" name="updatedContent" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary Odustani" data-dismiss="modal">Odustani</button>
+          <button type="delete" class="btn btn-danger" id="deleteObavijest">Izbriši</button>
+          <button type="submit" class="btn btn-primary Save" onclick="submitEditForm()">Spremi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  function openEditObavijestModal(obavijestId, title, content) {
+    document.getElementById('updatedTitle').value = title;
+    document.getElementById('updatedContent').value = content;
+    $.ajax({
+      type: 'GET',
+      url: `/get_obavijest/${obavijestId}/`,  // Make sure this matches your URL pattern
+      success: function(data) {
+        $('#obavijestId').val(data.id);
+        $('#updatedTitle').val(data.title);
+        $('#updatedContent').val(data.content);
+        $('#editObavijestModal').modal('show');
+      },
+      error: function(xhr, status, error) {
+        console.log("AJAX Error:", status, error);
+      }
+    });
+  }
+  
+  function submitEditForm() {
+    const obavijestId = $('#obavijestId').val();
+    const updatedTitle = $('#updatedTitle').val();
+    const updatedContent = $('#updatedContent').val();
+    
+    $.ajax({
+      type: 'POST',
+      url: `/edit_obavijest/${obavijestId}/`,  // Make sure this matches your URL pattern
+      data: {
+        'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+        'updated_title': updatedTitle,
+        'updated_content': updatedContent,
+      },
+      success: function(data) {
+        $('#editObavijestModal').modal('hide');
+        // Refresh the page or update the specific obavijest on the page
+      },
+      error: function(xhr, status, error) {
+        console.log("AJAX Error:", status, error);
+      }
+    });
+  }
+</script>
+<script>
+document.getElementById('deleteObavijest').addEventListener('click', function() {
+  const obavijestId = document.getElementById('obavijestId').value;
+
+  // Make an AJAX request to delete the obavijest
+  fetch(`/delete_obavijest/${obavijestId}/`, {
+    method: 'DELETE', // Use the DELETE HTTP method
+    headers: {
+      'X-CSRFToken': getCookie('csrftoken'), // Get the CSRF token
+    },
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response (e.g., show a success message, update the UI, or redirect)
+      if (data.success) {
+        $('#editObavijestModal').modal('hide'); // Hide the modal
+        // You can add additional logic here based on the response.
+      } else {
+        // Handle the case where the deletion was not successful.
+      }
+    })
+    .catch(error => {
+      console.error('AJAX Error:', error);
+    });
+});
+
+function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+  }
+</script>
+  <script>
+    // JAVASCRIPT ZA HANDLANJE MODALA
+    addObavijestForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(addObavijestForm);
+
+  fetch('/create_obavijest/', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    addObavijestModal.style.display = 'none';
+    // Handle any additional UI updates or feedback on successful save
+    // For example, show a success message or refresh the page to see the new data
+    
+  })
+  .catch(error => {
+    // Handle error, display an error message, or perform appropriate action
+    console.error(error);
+  });
+});
+
+  </script>
+  <script>
+    //JAVASCRIPT za skrivene edit buttone
+    window.addEventListener('DOMContentLoaded', () => {
+      const editButtons = document.querySelectorAll('.edit-button');
+      editButtons.forEach(button => {
+        button.style.display = 'none';
+      });
+    });
+
+
+    function toggleEditButtons() {
+      // Get all the elements with the class "edit-button"
+      const editButtons = document.querySelectorAll('.edit-button');
+
+      // Toggle the "show-edit-buttons" class on the container div
+      const container = document.querySelector('.container');
+      container.classList.toggle('show-edit-buttons');
+
+      // Toggle the display property for each edit button individually
+      editButtons.forEach(button => {
+        button.style.display = button.style.display === 'none' ? 'block' : 'none';
+      });
+    }
+
+  </script>
+  <script>
+    function adjustPadding(obavijestiCount) {
+        const rozaContainer = document.querySelector('.roza');
+        const padding = obavijestiCount * 20; // Adjust this value as needed
+
+        // Set the padding of the roza container
+        rozaContainer.style.paddingTop = padding + 'px';
+    }
+
+    // Get the obavijesti count from the Django template context
+    const obavijestiCount = {{ obavijesti_count }};
+
+    // Call the adjustPadding function when the page loads and whenever the window is resized
+    window.addEventListener('load', () => {
+        adjustPadding(obavijestiCount);
+    });
+    window.addEventListener('resize', () => {
+        adjustPadding(obavijestiCount);
+    });
+
+    // Call adjustPadding after adding or removing obavijesti elements
+    // For example, after adding a new obavijest via AJAX
+    // adjustPadding();
+</script>
+
+
+
+<script>
+  function openObavijestModal(title, content, kolegij, obavijestId) {
+    $('#modal-title').text(title);
+    $('#modal-content').text(content);
+    $('#modal-kolegij').text(kolegij);
+    $('#deleteObavijest').click(function () {
+        deleteObavijest(obavijestId); // Pass obavijest_id to the delete function
+        $('#obavijestModal').modal('hide');
+    });
+    $('#obavijestModal').modal('show');
+}
+
+
+   
+</script>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

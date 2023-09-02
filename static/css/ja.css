@@ -1,0 +1,404 @@
+* {
+    padding: 0;
+    margin: 0;
+   font-family: 'inter';
+   font-weight: 900;
+  }
+  body{
+    /* Apply linear gradient to the body element, covering the entire viewport */
+    background: linear-gradient(to bottom left,#C21B67, #E27526);
+    background-size: 100% 100%; /* Cover the entire viewport */
+    background-attachment: fixed; /* Fixed background so it doesn't scroll */
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Set height to cover the viewport height */
+    overflow: hidden; /* Ensure no overflow clipping */
+  }
+  .btn.btn-primary.btn-block.pbutton{
+    cursor: auto;
+  }
+  
+  .roza {
+    line-height: 54px;
+box-shadow: 0px 4px 15px #000000e2;}
+  .pbutton {
+  
+    border: none !important;
+  }
+  .nav-link p{
+    transition: color 0.5s ease-in-out,  text-shadow 0.5s ease-in-out;
+    margin-bottom: -2px;
+  }
+  #Odjava p{
+    transition: color 0.5s ease-in-out,  text-shadow 0.5s ease-in-out;
+  }
+  #Odjava p:hover{
+    color:#E27526;
+    text-shadow: 0px 2px 2px #00000090;
+  }
+  .nav-link p:hover{
+    color:#C21B67;
+    text-shadow: 0px 2px 2px #00000090;}
+  .pbutton:focus,
+  .pbutton:active,
+  .pbutton:hover {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .btn.btn-primary.btn-block.pbutton, .col-md-4{
+    background-color:transparent !important ;
+
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+    font-size: 25px;
+
+  }
+  .navbar-collapse {
+    
+    z-index: 999; /* Set a high z-index value */
+  }
+  .navbar {
+
+    z-index: 9999; /* Set a high z-index value */
+  }
+  img{
+    padding-right: 30px;
+    padding-left: 10px;
+  }
+.nav-item{
+  padding-left: 30px;
+  padding-right: 30px;
+padding-top: 17px;
+}
+
+  .navbar.navbar-expand-lg.navbar-dark.bg-dark.navbar-custom {
+    background-color: #000000 !important; 
+    
+  }
+  .roza {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1094.4px;
+    height: 531.2px;
+    align-items: center;
+    background: #000000;
+    border-radius: 50px;
+    margin-top: 100px; 
+  }
+
+
+  .roza {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200.4px;
+    height: 531.2px;
+    align-items: center;
+    background: #000000;
+    border-radius: 50px;
+    margin-top: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: -30px;
+  }
+  .bigwhite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%; 
+    margin: 0 auto;
+    color: white;
+    gap: 250px;
+    padding-top: 30px;
+  }
+  
+  .bigwhite p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    
+    line-height: 54px;
+    text-shadow: 0px 4px 15px #000000;
+  }
+  
+  
+  
+
+ 
+ .grid-item {
+  margin: 20px;
+
+    padding: 15px;
+    background: #000000;
+border-radius: 50px;
+width: 320px;
+height: 220px;
+color: white;
+ }
+ .grid-item-h1{
+padding-left: 15px;
+  padding-bottom: 15px;
+ }
+ .grid-item-p{
+  padding-left: 15px;
+
+   }
+   .picture-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .additional-info {
+    text-align: left !important;
+  }
+ .info-TEXT {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 39px;
+    color: #ffffff;
+    padding-bottom: 0.8cm;
+  }
+  .ROZO{
+    color: #C21B67;
+    padding-left: 0.9cm;
+  }
+.square-container {
+  width: 180px;
+  height: 180px;
+  border: 5px solid #C21B67;
+  filter: drop-shadow(0px 4px 50px #C21B67);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-container .image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  margin-left: 22.5px;
+}
+
+
+  /* Hide the default scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #000;
+}
+
+/* Style the thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #C21B67;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+
+
+/* Navbar Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.AnimacijaZaSliku{  animation: fadeIn 1.5s ease-in-out;}
+
+
+/* Define the animation */
+@keyframes rotateScaleFadeIn {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.5);
+  }
+  70% {
+    opacity: 1;
+    transform: rotateY(-10deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+}
+
+/* Apply the animation to elements with the .roza class */
+.roza > .container > .row > div {
+  animation: rotateScaleFadeIn 1.5s ease-in-out; /* Use the rotateScaleFadeIn animation */
+  animation-fill-mode: forwards; /* Keeps the final state of the animation */
+  backface-visibility: hidden; /* Hides the backface during rotation */
+}
+@media (max-width: 768px) {
+
+  .content-container {
+    transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+    transform-origin: 0 0;
+  }
+  .roza{
+   margin-top: 650px;
+    width: 900px;
+    margin-left: 50%;
+    height: 1000px;
+
+  }
+  .square-container{
+    width: 250px !important;
+    height: 250px !important;
+    margin-left: 10%;
+    margin-bottom: 185px;
+    margin-top: -20%;
+  }
+  .additional-info{
+    margin-left: 10%;
+    margin-top: -10%;
+  }
+  .info-TEXT{
+    font-size: 45px;
+  }
+  .jatxt{
+    font-size: 45px !important;
+
+  }
+  .btn.btn-primary.btn-block.pbutton{
+    margin-top: 5%;
+    margin-bottom: -15%;
+  
+  }
+}
+
+@media (min-width: 768px) and (max-width: 968px) {
+
+  .content-container {
+    transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+    transform-origin: 0 0;
+  }
+  .roza{
+   margin-top: 650px;
+    width: 900px;
+    margin-left: 50%;
+    height: 1000px;
+
+  }
+  .square-container{
+    width: 250px !important;
+    height: 250px !important;
+    margin-left: 10%;
+    margin-bottom: 185px;
+    margin-top: -20%;
+  }
+  .additional-info{
+    margin-left: 10%;
+    margin-top: -10%;
+  }
+  .info-TEXT{
+    font-size: 45px;
+  }
+  .jatxt{
+    font-size: 45px !important;
+
+  }
+  .btn.btn-primary.btn-block.pbutton{
+    margin-top: 5%;
+    margin-bottom: -15%;
+  }
+}
+
+@media (min-width: 968px) and (max-width: 1068px) {
+
+  .content-container {
+    transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+    transform-origin: 0 0;
+  }
+  .roza{
+   margin-top: 650px;
+    width: 1200px;
+    margin-left: 50%;
+    height: 1100px;
+
+  }
+  .square-container{
+    width: 150px !important;
+    height: 150px !important;
+    transform: scale(1.5) !important; /* Scale specific elements down by 20% */
+    margin-left: 10%;
+    margin-bottom: 185px;
+    margin-top: -20%;
+  }
+  .additional-info{
+    margin-left: 10%;
+    margin-top: -10%;
+  }
+  .info-TEXT{
+    font-size: 50px;
+  }
+  .jatxt{
+    font-size: 50px !important;
+
+  }
+  .btn.btn-primary.btn-block.pbutton{
+    margin-top: 5%;
+    margin-bottom: -15%;
+  }
+}
+
+@media (min-width: 1068px) and (max-width: 1268px) {
+
+  .content-container {
+    transform: scale(0.5) !important; /* Scale specific elements down by 20% */
+    transform-origin: 0 0;
+  }
+  .roza{
+   margin-top: 650px;
+    width: 1700px;
+    margin-left: 50%;
+    height: 1100px;
+
+  }
+  .square-container{
+    width: 200px !important;   
+     height: 200px !important;
+    transform: scale(1.4) !important;
+    margin-left: -10%;
+    margin-bottom: 185px;
+    margin-top: -20%;
+  }
+  .additional-info{
+    margin-left: -25%;
+    margin-top: 15%;
+  }
+  .info-TEXT{
+    font-size: 55px;
+  }
+  .jatxt{
+    font-size: 55px !important;
+
+  }
+  .btn.btn-primary.btn-block.pbutton{
+    margin-top: 5%;
+    margin-bottom: -15%;
+  }
+}
+
+#Odjava{
+
+color:#c21b66b0 !important;
+}

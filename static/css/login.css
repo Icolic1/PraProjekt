@@ -1,0 +1,164 @@
+body{
+  /* Apply linear gradient to the body element, covering the entire viewport */
+  background: linear-gradient(to bottom left,#C21B67, #E27526);
+  background-size: 100% 100%; /* Cover the entire viewport */
+  background-attachment: fixed; /* Fixed background so it doesn't scroll */
+  margin: 0; /* Remove default margin */
+  height: 100vh; /* Set height to cover the viewport height */
+  overflow: hidden; /* Ensure no overflow clipping */
+}
+.login {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 935.52px;
+  height: 664.4px;
+}
+
+.crnakocka {
+  position: absolute;
+  width: 448.46px; 
+  height: 409.66px; 
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+  border-radius: 32.88px;
+  line-height: 54px;
+box-shadow: 0px 4px 15px #000000c6;
+}
+
+.slika {
+  position: absolute;
+ 
+  left: 50%;
+  transform: translateX(-50%);
+  top: 162.6px;
+
+}
+
+.email {
+  position: absolute;
+  width: 212.1px;
+  height: 12.24px;
+  left: 354.72px;
+  top: 241.92px; 
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16.61px;
+  line-height: 20.47px;
+
+}
+
+.lozinka {
+  color: rgb(255, 255, 255);
+
+  position: absolute;
+  width: 168.53px;
+  height: 12.24px;
+  left: 354.72px;
+  top: 379.94px; 
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16.61px;
+  line-height: 20.47px;
+}
+
+.formeupisemail {
+  padding: 0 10px; /* Added padding */
+  position: absolute;
+  width: 248.82px; 
+  height: 39.84px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 280.92px;
+  background: linear-gradient(to bottom right,#c21b6683, #e274267d);
+
+    overflow: hidden; /* Ensure no overflow clipping */
+      border-radius: 58.79px;
+border: none;
+  font-size: 14px; /* Smaller font size */
+}
+
+.formeupislozinka {
+  padding: 0 10px; /* Added padding */
+  position: absolute;
+  width: 248.82px; 
+  height: 39.84px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 427.4px;
+  background: #C21B67;
+  border-radius: 58.79px;
+  border:none;
+ 
+  font-size: 14px; /* Smaller font size */
+    /* Apply linear gradient to the body element, covering the entire viewport */
+    background: linear-gradient(to bottom left,#c21b6683, #e274267d);
+ 
+    overflow: hidden; /* Ensure no overflow clipping */
+}
+
+input:focus {
+  outline: none;
+}
+.btn-primary {
+  position: absolute;
+  left: 50%;
+  top: calc(70% + 20px);
+  transform: translateX(-50%);
+  text-align: center;
+  width: 20%;
+  background: black;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 20.47px;
+  border-radius: 58.79px;
+  border: 0.61px solid black;
+}
+.btn-primary:hover {
+  color: #E27526;
+}
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #000;
+}
+
+/* Style the thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #C21B67;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+.login {
+  opacity: 0;
+ 
+  animation: fade-in 1s ease-in-out forwards;
+}
+.slika{
+  opacity: 0;
+ 
+  animation: fade-in 2s ease-in-out forwards;
+}
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+

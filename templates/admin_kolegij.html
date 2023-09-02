@@ -1,0 +1,935 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kolegij</title>
+    <link rel="stylesheet" href="{% static 'css/kolegij.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom animated-navbar">
+    <img src="{% static 'pictures/FB_Algebra-logo.jpg' %}" alt="Logo" height="40" class="AnimacijaZaSliku">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+     <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'pocetna' %}"><p>Početna</p></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'kolegij' %}"><p>Kolegiji i profesori</p></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ja' %}"><p>Ja</p></a>
+    </li>
+
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" id="Odjava" href="{% url 'logout' %}"><p>Odjava</p></a>
+    </li>
+    {% endif %}
+</ul>
+
+    </div>
+  </nav>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: orange;
+    }
+
+    #black-section {
+      height: 3cm;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    #algebra-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #algebra-text {
+      color: white;
+      font-size: 20px;
+    }
+
+    .black-button {
+      padding: 10px 15px;
+      color: white;
+      background-color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: normal;
+    }
+
+    #orange-buttons {
+      display: flex;
+      align-items: center;
+      gap: 3cm;
+      padding: 20px;
+      margin-left: 1cm;
+    }
+
+    .orange-button {
+      padding: 10px 15px;
+      color: white;
+      font-family: 'Inter';
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      outline: none !important;
+      box-shadow: none !important;
+
+      background-color: #E27526 !important;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 54px;
+      text-shadow: 0px 4px 15px #000000;
+      margin-left: 100px;
+    }
+    @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+    .bubble-container {
+      margin-top: 10px;
+      margin-left: 1.5cm;
+    }
+
+    .bubble-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bubble {
+      display: inline-block;
+      padding: 10px 17px;
+      border-radius: 40px;
+      background-color: #c21b67;
+      color: white;
+      font-size: 25px;
+      font-family: 'Inter';
+      max-width: max-content;
+      margin-right: 2cm;
+    }
+
+    .bubble-row .bubble:first-child {
+      background-color: black;
+    }
+	
+	#hidden-button {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 3.7cm; 
+            transform: translateX(-50%);
+            padding: 10px 15px; 
+			      line-height: 20px;
+            font-size: 10px; 
+
+            color: white;
+            font-family: 'Inter';
+            text-shadow: 0px 4px 15px #000000;
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            font-weight: bold;
+        }
+	
+	#hidden-button-2 {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 19.6cm;
+            transform: translateX(-50%);
+            padding: 10px 15px; 
+			      line-height: 20px;
+            font-size: 10px; 
+      
+            color: white;
+            font-family: 'Inter';
+            text-shadow: 0px 4px 15px #000000;
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            font-weight: bold;
+        
+        }
+        #hidden-button-3 {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 10.5cm; 
+            transform: translateX(-50%);
+            padding: 10px 15px; 
+			      line-height: 20px;
+            font-size: 10px; 
+       
+            color: white;
+            font-family: 'Inter';
+            text-shadow: 0px 4px 15px #000000;
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            font-weight: bold;
+        }
+	
+
+    .orange-button:nth-child(2) {
+      margin-left: 0;
+    }
+    * {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter';
+  font-weight: 900;
+}
+
+body {
+  background-color: #E27526 !important;
+}
+
+.pbutton {
+  border: none !important;
+}
+
+.pbutton:focus,
+.pbutton:active,
+.pbutton:hover {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn.btn-primary.btn-block.pbutton,
+.col-md-4 {
+  background-color: #E27526 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255, 255, 255) !important;
+  font-size: 25px;
+}
+
+img {
+  padding-right: 30px;
+  padding-left: 26px;
+}
+
+.nav-item {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 17px;
+}
+
+.navbar.navbar-expand-lg.navbar-dark.bg-dark.navbar-custom {
+  background-color: #000000 !important;
+}
+
+.bigwhite {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  padding-top: 30px;
+}
+
+
+.Kolegijitext {
+  width: 214px;
+  height: 39px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 39px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #000000;
+  border-radius: 112px;
+  background-color: #000000;
+}
+
+.Kolegiji {
+  display: flex;
+  align-items: center;
+}
+
+.custom-button {
+  background-color: #E27526 !important;
+  font-family: 'Inter';
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 54px;
+  text-shadow: 0px 4px 15px #000000;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.kbutton {
+  background-color: #E27526 !important;
+  font-family: 'Inter';
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 54px;
+  text-shadow: 0px 4px 15px #000000;
+}
+
+.ko-bg {
+  width: 214px;
+  height: 39px;
+  font-size: 25px;
+  line-height: 39px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #c21b67;
+  border-radius: 112px;
+  background-color: #c21b67;
+  vertical-align: right;
+}
+
+.blue-circle {
+  position: relative;
+}
+
+.blue-circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: blue;
+  z-index: -1;
+}
+
+
+.Kolegiji {
+  display: flex;
+  align-items: center;
+}
+
+.Kolegijitext {
+  width: 214px;
+  height: 39px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 39px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #000000;
+  border-radius: 112px;
+  background-color: #000000;
+  margin-right: 10px; 
+}
+
+
+  </style>
+  <div class="content-container">
+
+  <div id="orange-buttons">
+    <button class="orange-button" id="profesori-text">Profesori</button>
+    <button class="orange-button" onclick="toggleEditButtons()" id="uredi-button">Uredi</button>
+
+
+    <button class="orange-button" id="kolegiji-text">Kolegiji</button>
+  </div>
+
+<button class="orange-button" id="hidden-button" data-toggle="modal" data-target="#addProfesorModal">Novi profesor</button>
+<button class="orange-button" id="hidden-button-2" data-toggle="modal" data-target="#addKolegijModal">Novi kolegij</button>
+
+
+
+<div class="roza">
+  <div class="container">
+      <div class="row">
+          {% for profesor in profesori %}
+          {% if profesor.user.first_name and profesor.user.last_name %}
+          <button class="urediblue prof" onclick="openprofesorUrediModal('{{ profesor.user.id}}','{{ profesor.user.first_name|default:"" }}', '{{ profesor.user.last_name|default:"" }}', '{{ profesor.user.email}}', '{{ profesor.user.password}}')">Uredi</button>
+          <div class="col-lg-12" id="profesor-{{ profesor.id }}">
+              <div class="grid-item-profesor" onclick="openProfesorModal('{{ profesor.user.first_name }}', '{{ profesor.user.last_name}}', '{{profesor.user.email }}')">
+                  <h1 class="Podeblj">{{ profesor.user.first_name|default:"No profesor available" }} {{ profesor.user.last_name|default:"" }}</h1>
+              </div>
+              {% endif %}
+              <div class="kolegij-container">
+                  {% for kolegij in kolegiji %}
+                      {% if kolegij.profesor == profesor and kolegij.kolegij_naziv and profesor.user.first_name and profesor.user.last_name %}
+                      <button class="urediblue koleg" onclick="openkolegijUrediModal('{{ kolegij.profesor.user.id}}','{{ kolegij.id }}', '{{ kolegij }}','{{ profesor }}')">Uredi</button>
+                      <div class="grid-item-kolegij" onclick="openKolegijModal('Kolegij - {{ kolegij.kolegij_naziv }}', 'Profesor - {{ kolegij.profesor.user.first_name}} {{ kolegij.profesor.user.last_name}}')" id="kolegij-{{ kolegij.id }}">
+                              <h1 class="Podeblj">{{ kolegij.kolegij_naziv }}</h1>
+                          </div>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="profesorUrediModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <form id="profesorUrediForm" method="post" action="">
+
+          {% csrf_token %}
+          <input type="hidden" id="profesorId" name="profesorId" value="">
+          <div class="modal-body">
+            <div class="form-group">
+             
+              <input type="text" class="form-control" id="updatedFirstName" name="updatedFirstName">
+            </div>
+            <div class="form-group">
+           
+              <input type="text" class="form-control" id="updatedLastName" name="updatedLastName">
+            </div>
+            <div class="form-group">
+             
+              <input type="text" class="form-control" id="updatedEmail" name="updatedEmail">
+            </div>
+            <div class="form-group">
+           
+              <input type="text" class="form-control" id="updatedPassword" name="updatedPassword" >            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary Odustani" data-dismiss="modal">Odustani</button>
+            <button type="delete" class="btn btn-danger" id="deleteObavijest">Izbriši</button>
+            <button type="submit" class="btn btn-primary Save" onclick="submitEditForm()">Spremi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    function openprofesorUrediModal(profesorId, firstname, lastname,email,password) {
+      document.getElementById('updatedFirstName').value = firstname;
+      document.getElementById('updatedLastName').value = lastname;
+      document.getElementById('updatedEmail').value = email;
+      document.getElementById('updatedPassword').value = password;
+      $.ajax({
+        type: 'GET',
+        url: `/get_profesor/${profesorId}/`,  // Make sure this matches your URL pattern
+        success: function(data) {
+          $('#profesorId').val(data.id);
+          $('#updatedFirstName').val(data.firstname);
+          $('#updatedLastName').val(data.lastname);
+          $('#updatedEmail').val(data.email);
+          $('#updatedPassword').val(data.password);
+          $('#profesorUrediModal').modal('show');
+        },
+        error: function(xhr, status, error) {
+          console.log("AJAX Error:", status, error);
+        }
+      });
+    }
+    
+    function submitEditForm() {
+      const profesorId = $('#profesorId').val();
+      const updatedFirstName = $('#updatedFirstName').val();
+      const updatedLastName = $('#updatedLastName').val();
+      const updatedEmail = $('#updatedEmail').val();
+      const updatedPassword = $('#updatedPassword').val();
+      
+      $.ajax({
+        type: 'POST',
+        url: `/edit_profesor/${profesorId}/`,  // Make sure this matches your URL pattern
+        data: {
+          'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+          'updated_FirstName': updatedFirstName,
+          'updated_LastName': updatedLastName,
+          'updated_Email': updatedEmail,
+          'updated_Password': updatedPassword,
+        },
+        success: function(data) {
+          $('#profesorUrediModal').modal('hide');
+          // Refresh the page or update the specific obavijest on the page
+        },
+        error: function(xhr, status, error) {
+          console.log("AJAX Error:", status, error);
+        }
+      });
+    }
+  </script>
+  
+  <div class="modal fade" id="kolegijUrediModal" tabindex="-1" role="dialog"  aria-hidden="true">
+   
+    <div class="modal-dialog modal-lg"> <!-- Use modal-lg class for larger modal -->
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <form id="kolegijUrediForm" method="post" action="">
+  
+            {% csrf_token %}
+            <input type="hidden" id="kolegijId" name="kolegijId" value="">
+            <input type="hidden" id="profesorId" name="profesorId" value="">
+            <div class="modal-body">
+              <div class="form-group">
+               
+                <input type="text" class="form-control" id="updatedKolegij" name="updatedKolegij">
+              </div>
+              <div class="form-group">
+             
+                <select class="form-control" id="updatedProfesor" name="updatedprofesor">
+                  
+                  
+                      <option value=""</option>
+              
+              </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary Odustani" data-dismiss="modal">Odustani</button>
+              <button type="delete" class="btn btn-danger" id="deleteObavijest">Izbriši</button>
+              <button type="submit" class="btn btn-primary Save" onclick="submitEditFormKoleg()">Spremi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+      function openkolegijUrediModal(profesorId, kolegijId, updatedKolegij,updatedProfesor) {
+        document.getElementById('updatedKolegij').value = updatedKolegij;
+        document.getElementById('updatedProfesor').value = updatedProfesor;
+       
+        $.ajax({
+          type: 'GET',
+          url: `/get_kolegij/${kolegijId}/`,  // Make sure this matches your URL pattern
+          success: function(data) {
+            $('#kolegijId').val(data.id);
+            $('#updatedKolegij').val(data.kolegij_naziv); // Use the appropriate key for kolegij name
+            $('#profesorId').val(data.profesor.id); // Assuming data.profesor.id holds the professor's ID
+            $('#updatedProfesor').val(data.profesor.user.first_name + ' ' + data.profesor.user.last_name);
+            $('#kolegijUrediModal').modal('show');
+          },
+          error: function(xhr, status, error) {
+            console.log("AJAX Error:", status, error);
+          }
+        });
+      }
+    function submitEditFormKoleg() {
+      const kolegijId = $('#kolegijId').val();
+      const profesorId = $('#profesorId').val();
+      const updatedKolegij = $('#updatedKolegij').val();
+      const updatedProfesor = $('#updatedProfesor').val();
+      
+      
+      $.ajax({
+        type: 'POST',
+        url: `/edit_kolegij/${kolegijId}/${profesorId}/`,  // Make sure this matches your URL pattern
+        data: {
+          'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+          'updated_Kolegij': updatedKolegij,
+          'updated_Profesor': updatedProfesor,
+
+        },
+        success: function(data) {
+          $('#kolegijUrediModal').modal('hide');
+          // Refresh the page or update the specific obavijest on the page
+        },
+        error: function(xhr, status, error) {
+          console.log("AJAX Error:", status, error);
+        }
+      });
+    }
+  </script>
+<div class="modal fade" id="profesorModal" tabindex="-1" role="dialog"  aria-hidden="true">
+   
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header kolegij">
+  
+      </div>
+        <div class="modal-body profesor">
+            <!-- Professor details displayed using Django template variables -->
+            <p id="modal-first"></p>
+            <p id="modal-last"></p>
+            <p id="modal-email"></p>
+        </div>
+        <div class="modal-footer">
+            {% csrf_token %}
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+        </div>
+    </div>
+</div>
+</div>
+  <div class="modal fade" id="kolegijModal" tabindex="-1" role="dialog" aria-labelledby="kolegijModalLabel" aria-hidden="true">
+   
+    <div class="modal-dialog modal-lg"> <!-- Use modal-lg class for larger modal -->
+        <div class="modal-naziv">
+            <div class="modal-header kolegij">
+  
+            </div>
+            <div class="modal-body kolegij">
+                <!-- Obavijest content will be displayed here -->
+                <p id="modal-naziv"></p>
+                <p id="modal-profesor"></p>
+            </div>
+            <div class="modal-footer">
+              <!-- Add a "Delete" button -->
+              {% csrf_token %}
+              
+              <button type="button" class="btn btn-secondary Zatvori" data-dismiss="modal">Zatvori</button>
+          </div>
+        </div></div> 
+    </div>
+     <!-- Add Kolegij Modal -->
+     <div class="modal fade" id="addKolegijModal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-bottom">
+        <div class="modal-content">
+          <form id="kolegijForm" method="post" action="{% url 'create_kolegij' %}">
+            {% csrf_token %}
+            <!-- Modal Header -->
+            <!-- You can add your modal header content here if needed -->
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class="Modal-Naslov d-flex flex-column justify-content-center align-items-center">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="inputNaslov">Ime Kolegija:</label>
+                      <input type="text" class="form-control" id="inputNaslov" name="inputNaslov">
+                  
+                      <label for="inputProfesor">Profesor:</label>
+                      <select name="inputProfesor" id="inputProfesor">
+                        {% for profesor in profesori %}
+                          <option value="{{ profesor.user.email }}">{{ profesor.user.first_name }} {{ profesor.user.last_name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- You can add more content within the Modal-Naslov here -->
+              </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <!-- Button to close the modal -->
+              <button type="button" class="btn btn-secondary Odustani" data-dismiss="modal">Odustani</button>
+              <!-- Button to submit the form -->
+              <button type="submit" class="btn btn-primary Save" name="save_kolegij" id="spremiButton">Spremi</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!--MODAL ZA DODAVANJE PROFESORA-->
+    <!-- Add Kolegij Modal -->
+    <div class="modal fade" id="addProfesorModal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-bottom">
+        <div class="modal-content">
+          <form id="profesorForm" method="post" action="{% url 'create_profesor' %}">
+            {% csrf_token %}
+            <!-- Modal Header -->
+            <!-- You can add your modal header content here if needed -->
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class="Modal-Naslov d-flex flex-column justify-content-center align-items-center">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="inputFirst_name">Ime:</label>
+                      <input type="text" class="form-control" id="inputFirst_name" name="inputFirst_name">
+                      <label for="inputLast_name">Prezime:</label>
+                      <input type="text" class="form-control" id="inputLast_name" name="inputLast_name">
+                      <label for="inputEmail">Email:</label>
+                      <input type="email" class="form-control" id="inputEmail" name="inputEmail">
+                      <label for="inputPassword">Password:</label>
+                      <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+                    
+                      <label for="inputPredmet">Predmet:</label>
+                      <select name="inputPredmet" id="inputPredmet">
+                        {% for kolegij in kolegiji %}
+                          <option value="{{ kolegij.kolegij_id }}">{{ kolegij.kolegij_naziv }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                 
+                <!-- You can add more content within the Modal-Naslov here -->
+              </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <!-- Button to close the modal -->
+              <button type="button" class="btn btn-secondary Odustani" data-dismiss="modal">Odustani</button>
+              <!-- Button to submit the form -->
+              <button type="submit" class="btn btn-primary Save" id="spremiButton">Spremi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  
+  </div>
+</div>
+
+<script>
+  function openProfesorModal(first_name, last_name, email) {
+    // Populate modal content
+    $('#modal-first').text(first_name);
+    $('#modal-last').text(last_name);
+    $('#modal-email').text(email);
+    
+    // Open the modal
+    $('#profesorModal').modal('show');
+  }
+</script>
+
+<script>
+  function openKolegijModal(kolegij_naziv, profesor) {
+    $('#modal-naziv').text(kolegij_naziv);
+    $('#modal-profesor').text(profesor);
+
+    
+    $('#kolegijModal').modal('show');
+}
+
+
+   
+</script>
+
+  <!-- Add this script within your HTML -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the Spremi button by its ID
+    var spremiButton = document.getElementById('spremiButton');
+
+    // Add a click event listener to the Spremi button
+    spremiButton.addEventListener('click', function () {
+      // Reload the page when the button is clicked
+      location.reload();
+    });
+  });
+</script>
+
+  <script>
+    
+    // JAVASCRIPT ZA HANDLANJE MODALA
+    kolegijForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(kolegijForm);
+
+    fetch('/create_kolegij/', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      addKolegijModal.style.display = 'none';
+    // Handle any additional UI updates or feedback on successful save
+    // For example, show a success message or refresh the page to see the new data
+    
+    })
+    .catch(error => {
+    // Handle error, display an error message, or perform appropriate action
+      console.error(error);
+    });
+  });
+  </script>
+<script>
+const formData = new FormData(kolegijForm);
+
+fetch('/create_kolegij/', {
+  method: 'POST',
+  body: formData
+})
+.then(response => {
+  if (!response.ok) {
+    // Handle non-successful response, e.g., display an error message
+    console.error('Request failed:', response.status, response.statusText);
+    throw new Error('Request failed');
+  }
+  return response.text(); // Return the response as text
+})
+.then(data => {
+  // Handle the response data as needed
+  addKolegijModal.style.display = 'none';
+  // Handle any additional UI updates or feedback on successful save
+  // For example, show a success message or refresh the page to see the new data
+})
+.catch(error => {
+  // Handle error, display an error message, or perform appropriate action
+  console.error('Fetch error:', error); // Log fetch-related error
+});
+
+
+
+  
+
+
+  </script>
+  <script>
+  function toggleEditButtons() {
+    // Get all the elements with the class "edit-button"
+    const editButtons = document.querySelectorAll('.urediblue');
+
+    // Toggle the "show-edit-buttons" class on the container div
+    const container = document.querySelector('.container');
+    container.classList.toggle('show-edit-buttons');
+
+    // Toggle the display property for each edit button individually
+    editButtons.forEach(button => {
+      button.style.display = button.style.display === 'block'?'none':'block';
+    });
+  }
+</script>
+<script> function toggleEditButtons2() {
+  // Get all the elements with the class "edit-button"
+  const editButtons = document.querySelectorAll('.urediblue');
+
+  // Toggle the "show-edit-buttons" class on the container div
+  const container = document.querySelector('.container');
+  container.classList.toggle('show-edit-buttons');
+
+  // Toggle the display property for each edit button individually
+  editButtons.forEach(button => {
+    button.style.display = button.style.display === 'none'?'block':'none';
+  });}</script>
+  <script>
+    const buttonUredi = document.getElementById("uredi-button");
+    const hiddenButton = document.getElementById("hidden-button");
+    const hiddenButton_2 = document.getElementById("hidden-button-2");
+    const hiddenButton_3 = document.getElementById("hidden-button-3");
+   const urediblueElements = document.getElementsByClassName("urediblue");
+    buttonUredi.addEventListener("click", () => {
+      buttonUredi.textContent = buttonUredi.textContent === "Uredi" ? "Spremi" : "Uredi";
+
+
+      if (buttonUredi.textContent === "Spremi") {
+        hiddenButton.style.display = "inline-block";
+        hiddenButton_2.style.display = "inline-block";
+        hiddenButton_3.style.display = "inline-block";
+        
+        hiddenButton.classList.add("hidden-button-animation");
+        hiddenButton_3.classList.add("hidden-button-animation");
+        hiddenButton_2.style.display = "inline-block";
+        hiddenButton_2.classList.add("hidden-button-animation");
+      } else {
+
+        hiddenButton.style.display = "none";
+        hiddenButton_2.style.display = "none";
+        hiddenButton_3.style.display = "none";
+        hiddenButton.classList.remove("hidden-button-animation");
+        hiddenButton_3.classList.remove("hidden-button-animation");
+        hiddenButton_2.style.display = "none";
+        hiddenButton_2.classList.remove("hidden-button-animation");
+      }
+    });
+
+ 
+    hiddenButton_3.addEventListener("click", () => {
+      buttonUredi.textContent = "Uredi";
+      hiddenButton.style.display = "none";
+      hiddenButton_2.style.display = "none";
+      hiddenButton_3.style.display = "none";
+      hiddenButton.classList.remove("hidden-button-animation");
+      hiddenButton_3.classList.remove("hidden-button-animation");
+      hiddenButton_2.style.display = "none";
+      hiddenButton_2.classList.remove("hidden-button-animation");
+    });
+   
+    
+    </script>
+    <!-- Add this script within your HTML -->
+<script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urediButton = document.getElementById("uredi-button");
+
+        urediButton.addEventListener("click", function () {
+            // Toggle visibility for each Profesori section
+            {% for profesor in profesori %}
+            const profesorSection = document.getElementById("profesor-{{ profesor.id }}");
+            if (profesorSection) {
+                profesorSection.classList.toggle("hidden-content");
+            }
+            {% endfor %}
+
+            // Toggle visibility for each Kolegiji section
+            {% for kolegij in kolegiji %}
+            const kolegijSection = document.getElementById("kolegij-{{ kolegij.id }}");
+            if (kolegijSection) {
+                kolegijSection.classList.toggle("hidden-content");
+            }
+            {% endfor %}
+        });
+    });
+</script>
+
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
+</body>
+</html>
